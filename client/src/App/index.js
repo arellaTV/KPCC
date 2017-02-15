@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import ReactAudioPlayer from 'react-audio-player';
 
 class App extends React.Component {
   constructor(props) {
@@ -47,9 +48,11 @@ class App extends React.Component {
             <li key={index}>
               <span>{article.title}</span>
               <ul>
-                {article.audio.map(audio => {
+                {article.audio.map((audio, index) => {
                   return (
-                    <li>{audio.url}</li>
+                    <li key={index}>
+                      <ReactAudioPlayer src={audio.url} />
+                    </li>
                   )
                 })}
               </ul>
