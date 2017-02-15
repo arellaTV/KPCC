@@ -29,8 +29,10 @@ class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const keywords = event.target[0].value;
-    this.setState({ keywords });
-    this.getArticlesByQuery(keywords);
+    if (keywords) {
+      this.setState({ keywords });
+      this.getArticlesByQuery(keywords);  
+    }
   }
 
   render() {
