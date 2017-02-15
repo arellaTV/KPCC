@@ -16,6 +16,7 @@ a {
   height: 4em;
   background-color: white;
   color: white;
+  border-bottom: 2px solid black;
 }
 
 .search-field {
