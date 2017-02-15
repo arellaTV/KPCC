@@ -1,0 +1,25 @@
+{
+  "name": "kpcc",
+  "version": "0.0.1",
+  "description": "This is a KPCC search engine that returns any articles and associated audio files related to the search keywords.",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arellaTV/KPCC.git"
+  },
+  "keywords": [
+    "KPCC",
+    "search",
+    "articles",
+    "audio"
+  ],
+  "author": "Jay Arella",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arellaTV/KPCC/issues"
+  },
+  "homepage": "https://github.com/arellaTV/KPCC#readme"
+}
