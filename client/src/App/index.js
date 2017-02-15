@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import ArticleEntry from './ArticleEntry'
+import ArticleEntry from './ArticleEntry';
+import SearchBar from './SearchBar';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,12 +36,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>KPCC</h1>
-        <h3>Search Articles</h3>
-        <form onSubmit={this.handleSubmit}>
-          <input type='text' />
-          <input type='submit'/>
-        </form>
+        <div className='nav-bar'>
+          <img src='assets/images/logo.gif' width='200px'/>
+        </div>
+        <SearchBar handleSubmit={this.handleSubmit} />
         <h4>Search results for {this.state.keywords}</h4>
         <div className='container'>
         {this.state.articles.map((article, index) => {
