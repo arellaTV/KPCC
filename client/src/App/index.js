@@ -51,7 +51,7 @@ class App extends React.Component {
                 {article.audio.map((audio, index) => {
                   return (
                     <li key={index}>
-                      <ReactAudioPlayer src={audio.url} />
+                      <ReactAudioPlayer src={audio.url} preload='none'/>
                     </li>
                   )
                 })}
