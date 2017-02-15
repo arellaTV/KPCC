@@ -7,15 +7,19 @@ const ArticleEntry = (props) => {
   const thumbnail = thumbnailNode.substring(10, end + 3);
   return (
     <div className='article'>
-      <span>{props.title}</span>
-      <img src={thumbnail} />
-      {props.audio.map((audio, index) => {
-        return (
-          <audio controls preload='none' key={index}>
-            <source src={audio.url}/>
-          </audio>
-        )
-      })}
+      <img className='thumbnail' src={thumbnail} />
+      <div className='content'>
+        <div className='title'>{props.title}</div>
+        <div className='audio'>
+          {props.audio.map((audio, index) => {
+            return (
+              <audio controls preload='none' key={index}>
+              <source src={audio.url}/>
+              </audio>
+            )
+          })}
+        </div>
+      </div>
     </div>
   )
 };

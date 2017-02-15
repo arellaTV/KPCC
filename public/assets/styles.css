@@ -2,9 +2,28 @@ body {
   background-color: lightgrey;
 }
 
+.thumbnail {
+  float: left;
+}
+
+.title {
+  float: right;
+  width: 50%;
+}
+
 .article {
   width: 100%;
   background-color: white;
-  border-radius: 6px;
+  border-radius: 20px;
+  overflow: hidden;
   margin: 12px 0;
+}
+
+.audio {
+  bottom: 0px;
+}
+
+.content {
+  height: 188px;
+  background-color: blue;
 }
