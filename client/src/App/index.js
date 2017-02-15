@@ -15,9 +15,9 @@ class App extends React.Component {
     this.getArticlesByQuery('virgin galactic');
   }
 
-  getArticlesByQuery(query) {
-    const queryStringWithPlus = query.split(' ').join('+');
-    fetch(`http://www.scpr.org/api/v3/articles?query=${queryStringWithPlus}`)
+  getArticlesByQuery(keywords) {
+    const query = keywords.split(' ').join('+');
+    fetch(`http://www.scpr.org/api/v3/articles?query=${query}`)
       .then(response => response.json())
       .then(body => {
         this.setState({ articles: body.articles })
@@ -26,7 +26,8 @@ class App extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target[0].value);
+    const keywords = event.target[0].value;
+    console.log(keywords);
   }
 
   render() {
