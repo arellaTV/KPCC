@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 
 class App extends React.Component {
   render() {
-    return <p>Webpack test</p>
+    return <p>Webpack test!</p>
   }
 }
 
