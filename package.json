@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/arellaTV/KPCC/issues"
   },
-  "homepage": "https://github.com/arellaTV/KPCC#readme"
+  "homepage": "https://github.com/arellaTV/KPCC#readme",
+  "devDependencies": {
+    "webpack": "^2.2.1"
+  }
 }
