@@ -46,9 +46,7 @@ class App extends React.Component {
           return (
             <ArticleEntry
               key={index}
-              title={article.title}
-              audio={article.audio}
-              thumbnail={article.thumbnail}
+              article={article}
             />
           );
         })}

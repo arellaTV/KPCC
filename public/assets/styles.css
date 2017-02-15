@@ -14,20 +14,27 @@ body {
 
 .thumbnail {
   float: left;
-    height: 100%;
-    width: 25%;
-  }
+  height: 100%;
+  width: 25%;
+}
+
+.article-body {
+  float: left;
+  width: 75%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  padding: 15px 25px;
+}
 
 .title {
-  float: right;
-  width: 50%;
+  float: left;
+  font-size: 1.5em;
 }
 
 .audio {
-  bottom: 0px;
-}
-
-.content {
-  height: 188px;
-  background-color: blue;
+  display: block;
+    clear: left;
+    float: left;
+    width: 100%;
 }
