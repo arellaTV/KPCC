@@ -9,6 +9,12 @@ a {
   text-decoration: none;
 }
 
+.container {
+  width: 75%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .nav-bar {
   -webkit-box-sizing: border-box;
   padding: 10px;
@@ -34,11 +40,6 @@ a {
   background-color: #3a62a3;
   color: white;
   box-shadow: 5px 12px 20px lightgrey;
-}
-
-.container {
-  width: 75%;
-  margin: 0 auto;
 }
 
 .article {
@@ -126,6 +127,6 @@ a {
   }
 
   .relative-time {
-    font-size: 0.75em;
+    font-size: 0.6em;
   }
 }

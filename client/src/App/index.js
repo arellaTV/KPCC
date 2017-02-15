@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getArticlesByQuery(this.state.keywords);
+    // this.getArticlesByQuery(this.state.keywords);
   }
 
   getArticlesByQuery(keywords) {
@@ -31,7 +31,7 @@ class App extends React.Component {
     const keywords = event.target[0].value;
     if (keywords) {
       this.setState({ keywords });
-      this.getArticlesByQuery(keywords);  
+      this.getArticlesByQuery(keywords);
     }
   }
 
