@@ -27,14 +27,25 @@ body {
   padding: 15px 25px;
 }
 
+.relative-time {
+  float: right;
+  color: grey;
+}
+
 .title {
   float: left;
-  font-size: 1.5em;
+  font-size: 1.25em;
+}
+
+.byline {
+  clear: left;
+  float: left;
+  padding-bottom: 0.5em;
 }
 
 .audio {
   display: block;
-    clear: left;
-    float: left;
-    width: 100%;
+  clear: left;
+  float: left;
+  width: 100%;
 }

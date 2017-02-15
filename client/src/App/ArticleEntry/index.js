@@ -1,10 +1,13 @@
 import React from 'react';
 import { render } from 'react-dom';
+import moment from 'moment';
 
 const ArticleEntry = (props) => {
   const thumbnailNode = props.article.thumbnail;
   const end = thumbnailNode.indexOf('jpg');
   const thumbnail = thumbnailNode.substring(10, end + 3);
+  const relativeTime = moment(props.article.published_at).fromNow();
+
   return (
     <div className='article'>
       <div className='thumbnail'
@@ -22,6 +25,7 @@ const ArticleEntry = (props) => {
             )
           })}
         </div>
+        <div className='relative-time'>{relativeTime}</div>
       </div>
     </div>
   )
