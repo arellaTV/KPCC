@@ -14,18 +14,16 @@ const ArticleEntry = (props) => {
             style={{background: `url("${thumbnail}") center / cover`}}>
       </div>
       <div className='article-body'>
+        <div className='relative-time'>{relativeTime}</div>
         <div className='title'>{props.article.title}</div>
         <div className='byline'>{props.article.byline}</div>
-        <div className='audio'>
-          {props.article.audio.map((audio, index) => {
-            return (
-              <audio controls preload='none' key={index}>
+        {props.article.audio.map((audio, index) => {
+          return (
+            <audio className='audio' controls preload='none' key={index}>
               <source src={audio.url}/>
-              </audio>
-            )
-          })}
-        </div>
-        <div className='relative-time'>{relativeTime}</div>
+            </audio>
+          )
+        })}
       </div>
     </div>
   )
