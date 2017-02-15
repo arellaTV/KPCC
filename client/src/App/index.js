@@ -40,16 +40,16 @@ class App extends React.Component {
           <img src='assets/images/logo.gif' width='200px'/>
         </div>
         <SearchBar handleSubmit={this.handleSubmit} />
-        <h4>Search results for {this.state.keywords}</h4>
         <div className='container'>
-        {this.state.articles.map((article, index) => {
-          return (
-            <ArticleEntry
-              key={index}
-              article={article}
-            />
-          );
-        })}
+          <h4>Search results for <u>{this.state.keywords}</u></h4>
+          {this.state.articles.map((article, index) => {
+            return (
+              <ArticleEntry
+                key={index}
+                article={article}
+              />
+            );
+          })}
         </div>
       </div>
     )
