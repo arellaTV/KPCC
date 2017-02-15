@@ -44,7 +44,16 @@ class App extends React.Component {
         <ul>
         {this.state.articles.map((article, index) => {
           return (
-            <li key={index}>{article.title}</li>
+            <li key={index}>
+              <span>{article.title}</span>
+              <ul>
+                {article.audio.map(audio => {
+                  return (
+                    <li>{audio.url}</li>
+                  )
+                })}
+              </ul>
+            </li>
           );
         })}
         </ul>
