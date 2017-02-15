@@ -22,9 +22,9 @@ class App extends React.Component {
     return (
       <div>Webpack test!!
         <ul>
-        {this.state.articles.map(article => {
+        {this.state.articles.map((article, index) => {
           return (
-            <li>{article.title}</li>
+            <li key={index}>{article.title}</li>
           );
         })}
         </ul>
