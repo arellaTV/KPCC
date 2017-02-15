@@ -15,8 +15,12 @@ const ArticleEntry = (props) => {
       </div>
       <div className='article-body'>
         <div className='relative-time'>{relativeTime}</div>
-        <div className='title'>{props.article.title}</div>
-        <div className='byline'>{props.article.byline}</div>
+        <div className='title highlight'>
+          <a href={props.article.public_url}>{props.article.title}</a>
+        </div>
+        <div className='byline highlight'>
+          <a href={props.article.public_url}>{props.article.byline}</a>
+        </div>
         {props.article.audio.map((audio, index) => {
           return (
             <audio className='audio' controls preload='none' key={index}>
