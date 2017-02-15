@@ -42,6 +42,7 @@ class App extends React.Component {
           <input type='submit'/>
         </form>
         <h4>Search results for {this.state.keywords}</h4>
+        <div className='container'>
         {this.state.articles.map((article, index) => {
           return (
             <ArticleEntry
@@ -50,6 +51,7 @@ class App extends React.Component {
             />
           );
         })}
+        </div>
       </div>
     )
   }
