@@ -2,13 +2,13 @@ import React from 'react';
 import { render } from 'react-dom';
 
 const ArticleEntry = (props) => {
-  const createThumbnail = function() {
-    return {__html: props.thumbnail};
-  }
+  const thumbnailNode = props.thumbnail;
+  const end = thumbnailNode.indexOf('jpg');
+  const thumbnail = thumbnailNode.substring(10, end + 3);
   return (
     <div className='article'>
       <span>{props.title}</span>
-      <div dangerouslySetInnerHTML={createThumbnail()}></div>
+      <img src={thumbnail} />
       {props.audio.map((audio, index) => {
         return (
           <audio controls preload='none' key={index}>

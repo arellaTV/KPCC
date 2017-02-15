@@ -1,0 +1,10 @@
+body {
+  background-color: lightgrey;
+}
+
+.article {
+  width: 100%;
+  background-color: white;
+  border-radius: 6px;
+  margin: 12px 0;
+}
