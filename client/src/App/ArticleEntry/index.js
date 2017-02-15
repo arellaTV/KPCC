@@ -7,7 +7,9 @@ const ArticleEntry = (props) => {
   const thumbnail = thumbnailNode.substring(10, end + 3);
   return (
     <div className='article'>
-      <img className='thumbnail' src={thumbnail} />
+      <div className='thumbnail'
+            style={{background: `url("${thumbnail}") center / cover`}}>
+      </div>
       <div className='content'>
         <div className='title'>{props.title}</div>
         <div className='audio'>
