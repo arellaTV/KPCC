@@ -5,14 +5,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '',
+      keywords: 'virgin galactic',
       articles: []
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.getArticlesByQuery('virgin galactic');
+    this.getArticlesByQuery(this.state.keywords);
   }
 
   getArticlesByQuery(keywords) {
@@ -27,7 +27,8 @@ class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const keywords = event.target[0].value;
-    console.log(keywords);
+    this.setState({ keywords });
+    this.getArticlesByQuery(keywords);
   }
 
   render() {
@@ -39,6 +40,7 @@ class App extends React.Component {
           <input type='text' />
           <input type='submit'/>
         </form>
+        <h4>Search results for {this.state.keywords}</h4>
         <ul>
         {this.state.articles.map((article, index) => {
           return (
