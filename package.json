@@ -4,7 +4,7 @@
   "description": "This is a KPCC search engine that returns any articles and associated audio files related to the search keywords.",
   "main": "server/index.js",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register client/spec/**/*.js",
+    "test": "mocha --compilers js:babel-core/register client/spec/**/*.js -s 500",
     "build:watch": "webpack --progress --hide-modules --watch",
     "build": "webpack --hide-modules",
     "server": "node server/index.js"

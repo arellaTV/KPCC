@@ -115,13 +115,38 @@ describe('Search functionality', () => {
 });
 
 describe('Render components', () => {
-  it('renders a thumbnail for every article', () => {});
+  it('renders 6 audio elements from "virgin galactic" query', () => {
+    const wrapper = mount(<App />);
+    return wrapper.node.componentDidMount().then(() => {
+      expect(wrapper.find('audio').nodes).to.have.length(6);
+    });
+  });
 
-  it('renders a relative time for every article', () => {});
+  it('renders a thumbnail for every article', () => {
+    const wrapper = mount(<App />);
+    return wrapper.node.componentDidMount().then(() => {
+      expect(wrapper.find('.thumbnail').nodes).to.have.length(10);
+    });
+  });
 
-  it('renders a title for every article', () => {});
+  it('renders a relative time for every article', () => {
+    const wrapper = mount(<App />);
+    return wrapper.node.componentDidMount().then(() => {
+      expect(wrapper.find('.relative-time').nodes).to.have.length(10);
+    });
+  });
 
-  it('renders a byline for every article', () => {});
+  it('renders a title for every article', () => {
+    const wrapper = mount(<App />);
+    return wrapper.node.componentDidMount().then(() => {
+      expect(wrapper.find('.title').nodes).to.have.length(10);
+    });
+  });
 
-  it('renders audio tags', () => {});
+  it('renders a byline for every article', () => {
+    const wrapper = mount(<App />);
+    return wrapper.node.componentDidMount().then(() => {
+      expect(wrapper.find('.byline').nodes).to.have.length(10);
+    });
+  });
 });
