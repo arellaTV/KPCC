@@ -39,10 +39,6 @@ class App extends React.Component {
         reject('Input not found!')
       }
     });
-    // const keywords = event.target[0].value;
-    // if (keywords) {
-    // }
-    // return keywords;
   }
 
   render() {
