@@ -34,6 +34,7 @@ class App extends React.Component {
       this.setState({ keywords });
       this.getArticlesByQuery(keywords);
     }
+    return keywords;
   }
 
   render() {

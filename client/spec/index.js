@@ -34,7 +34,7 @@ describe('<App />', () => {
   it('fetches articles by query and updates state', () => {
     const wrapper = mount(<App />);
     const query = 'virgin galactic';
-    return wrapper.node.getArticlesByQuery(query).then(data => {
+    return wrapper.node.getArticlesByQuery(query).then(() => {
       const updatedState = wrapper.state('articles');
       expect(updatedState).to.have.length(10);
       expect(updatedState[0].title)
@@ -63,5 +63,16 @@ describe('<App />', () => {
     const wrapper = shallow(<SearchBar {...props} />);
     wrapper.find('form').simulate('submit');
     expect(props.handleSubmit.calledOnce).to.equal(true);
+  });
+
+  it('should not update state if search input is blank', () => {
+    const wrapper = mount(<App />);
+    const eventStub = {
+      preventDefault: () => {},
+      target: [{ value: '' }]
+    }
+    expect(wrapper.node.handleSubmit(eventStub)).to.equal('');
+    expect(wrapper.state('keywords')).to.equal('virgin galactic');
+    expect(wrapper.state('articles')).to.have.length(0);
   });
 });
