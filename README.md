@@ -59,5 +59,6 @@ $ npm test
 - Webpack is used to bundle source code to the public folder
 -- If cloned from github, the project should build after running "npm start".
 -- If opened from the .zip, the bundle should be in the directory, 'public/dist'. To start, you can use "npm start", or "npm run server";
+- Uses [Moment.js](https://momentjs.com/) for relative time.
 - Although the exercise was not implemented in Ruby, I'm confident that I can pick up Ruby's syntax and contribute right away
 - Thank you so much for the opportunity to participate in this coding challenge! I had a really fun time with it!
