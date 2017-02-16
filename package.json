@@ -7,7 +7,8 @@
     "test": "mocha --compilers js:babel-core/register client/spec/index.js -s 500",
     "build:watch": "webpack --progress --hide-modules --watch",
     "build": "webpack --hide-modules",
-    "server": "node server/index.js"
+    "server": "node server/index.js",
+    "start": "npm run build && npm run server"
   },
   "repository": {
     "type": "git",
@@ -38,10 +39,12 @@
     "mocha": "^3.2.0",
     "moment": "^2.17.1",
     "node-fetch": "^1.6.3",
+    "promise-polyfill": "^6.0.2",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
     "sinon": "^1.17.7",
-    "webpack": "^2.2.1"
+    "webpack": "^2.2.1",
+    "whatwg-fetch": "^2.0.2"
   }
 }

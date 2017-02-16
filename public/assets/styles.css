@@ -17,6 +17,8 @@ a {
 
 .nav-bar {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10px;
   width: 100%;
   height: 4em;
@@ -33,6 +35,8 @@ a {
 
 .search-bar {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   width: 100%;
   height: 4em;
   font-size: 1.5em;
@@ -68,6 +72,8 @@ a {
 
 .article-body {
   -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   float: left;
   width: 75%;
   height: 100%;
