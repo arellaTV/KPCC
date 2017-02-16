@@ -24,7 +24,6 @@ a {
   height: 4em;
   background-color: white;
   color: white;
-  border-bottom: 2px solid black;
 }
 
 .search-field {
@@ -49,7 +48,7 @@ a {
 .article {
   width: 100%;
   height: 144px;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: white;
   overflow: hidden;
   margin: 12px 0;
