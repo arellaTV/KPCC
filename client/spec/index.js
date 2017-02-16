@@ -37,9 +37,6 @@ describe('Initial state', () => {
     return wrapper.node.getArticlesByQuery(query).then(() => {
       const updatedState = wrapper.state('articles');
       expect(updatedState).to.have.length(10);
-      expect(updatedState[0].title)
-        .to.equal('How aerospace is making a comeback in Southern California');
-      expect(updatedState[0].byline).to.equal('Ben Bergman');
     });
   });
 });
@@ -93,12 +90,26 @@ describe('Search functionality', () => {
     });
   });
 
-  it('updates state after entering input through DOM', () => {
+  it('updates state if search input is sent through the DOM', () => {
     const wrapper = mount(<App />);
     wrapper.find('form').simulate('submit', { target: [{value: 'star trek'}]});
     return wrapper.node.componentDidMount().then(() => {
       expect(wrapper.state('keywords')).to.equal('star trek');
       expect(wrapper.state('articles')).to.have.length(10);
+    });
+  });
+
+  it('returns 0 articles if input has no results', () => {
+    const wrapper = mount(<App />);
+    const eventStub = {
+      preventDefault: () => {},
+      target: [{ value: 'adfkj' }]
+    }
+
+    return wrapper.node.handleSubmit(eventStub).then(keywords => {
+      const updatedState = wrapper.state();
+      expect(updatedState.keywords).to.equal('adfkj');
+      expect(updatedState.articles).to.have.length(0);
     });
   });
 });
