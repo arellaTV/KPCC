@@ -17,6 +17,18 @@ class App extends React.Component {
     return this.getArticlesByQuery(this.state.keywords);
   }
 
+  componentDidUpdate() {
+    const audioCollection = document.getElementsByTagName('audio');
+    const audioElements = Array.prototype.slice.call(audioCollection);
+    for (let i = 0; i < audioElements.length; i++) {
+      audioElements[i].addEventListener('play', function() {
+        audioElements.forEach((element, index) => {
+          if (index !== i) { element.pause() };
+        });
+      });
+    };
+  }
+
   getArticlesByQuery(keywords) {
     const query = keywords.split(' ').join('+');
     return fetch(`http://www.scpr.org/api/v3/articles?query=${query}`)
