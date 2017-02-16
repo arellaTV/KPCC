@@ -40,12 +40,12 @@ $ npm test
 ## Design Choices
 - State-full application parent: 'App'
 -- Keeps logic: API calls, capturing input, and initializing state
-
 - State-less children: 'SearchBar', 'ArticleEntry'
 -- Renders the input field and binds parent's callback to child's submit event
 -- Maps over the state and renders each article
 
-- Basic web server is used to serve static assets and allow for easy testing across multiple platforms
+* Client folder structure is organized by component tree
+* Basic web server is used to serve static assets and allow for easy testing across multiple platforms
 
 - Styling:
 -- The application is responsive to its window's size
