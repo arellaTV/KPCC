@@ -11,7 +11,6 @@ global.window = doc.defaultView;
 
 import App from './../src/App';
 import SearchBar from './../src/App/SearchBar';
-// import Form from './../src/App/SearchBar/Form';
 import ArticleEntry from './../src/App/ArticleEntry';
 
 describe('<App />', () => {
@@ -31,6 +30,16 @@ describe('<App />', () => {
       handleSubmit: () => {}
     };
     const wrapper = shallow(<SearchBar {...props} />);
+    console.log(wrapper.find('form').props().onSubmit);
     expect(wrapper.find('form').props().onSubmit).to.be.a('function');
+  });
+
+  it('should call handleSubmit on form submission', () => {
+    const props = {
+      handleSubmit: sinon.spy()
+    };
+    const wrapper = shallow(<SearchBar {...props} />);
+    wrapper.find('form').simulate('submit');
+    expect(props.handleSubmit.calledOnce).to.equal(true);
   });
 });
