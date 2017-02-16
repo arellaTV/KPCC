@@ -23,7 +23,7 @@ class App extends React.Component {
       .then(response => response.json())
       .then(body => {
         this.setState({ articles: body.articles })
-      })
+      });
   }
 
   handleSubmit(event) {

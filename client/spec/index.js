@@ -18,6 +18,17 @@ describe('<App />', () => {
     sinon.spy(App.prototype, 'componentDidMount');
     const wrapper = mount(<App />);
     expect(App.prototype.componentDidMount.calledOnce).to.equal(true);
+    App.prototype.componentDidMount.restore();
+  });
+
+  it('initializes state with "virgin galactic" as keyword', () => {
+    const wrapper = mount(<App />);
+    expect(wrapper.state('keywords')).to.equal('virgin galactic');
+  });
+
+  it('initializes state with empty array', () => {
+    const wrapper = mount(<App />);
+    expect(wrapper.state('articles')).to.have.length(0);
   });
 
   it('renders the Search Bar', () => {
@@ -30,7 +41,6 @@ describe('<App />', () => {
       handleSubmit: () => {}
     };
     const wrapper = shallow(<SearchBar {...props} />);
-    console.log(wrapper.find('form').props().onSubmit);
     expect(wrapper.find('form').props().onSubmit).to.be.a('function');
   });
 

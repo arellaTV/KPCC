@@ -6,7 +6,7 @@ const SearchBar = (props) => {
     <div className='search-bar'>
       <div className='container'>
         <span>Search Articles</span>
-        <form className='search-form' onSubmit={props.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
           <input className='search-field' type='text' />
         </form>
       </div>
