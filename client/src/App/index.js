@@ -43,6 +43,7 @@ class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const keywords = event.target[0].value;
+    event.target[0].value = '';
     return new Promise((resolve, reject) => {
       if (keywords) {
         const articles = this.getArticlesByQuery(keywords);
