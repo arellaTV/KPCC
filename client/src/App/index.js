@@ -14,7 +14,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.getArticlesByQuery(this.state.keywords);
+    return this.getArticlesByQuery(this.state.keywords);
   }
 
   getArticlesByQuery(keywords) {

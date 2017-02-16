@@ -13,7 +13,7 @@ import App from './../src/App';
 import SearchBar from './../src/App/SearchBar';
 import ArticleEntry from './../src/App/ArticleEntry';
 
-describe('<App />', () => {
+describe('Initial state', () => {
   it('calls componentDidMount', () => {
     sinon.spy(App.prototype, 'componentDidMount');
     const wrapper = mount(<App />);
@@ -26,12 +26,12 @@ describe('<App />', () => {
     expect(wrapper.state('keywords')).to.equal('virgin galactic');
   });
 
-  it('initializes state with empty array', () => {
+  it('initializes state with empty array as articles', () => {
     const wrapper = mount(<App />);
     expect(wrapper.state('articles')).to.have.length(0);
   });
 
-  it('fetches articles by query and updates state', () => {
+  it('fetches virgin galactic articles and updates state', () => {
     const wrapper = mount(<App />);
     const query = 'virgin galactic';
     return wrapper.node.getArticlesByQuery(query).then(() => {
@@ -42,13 +42,15 @@ describe('<App />', () => {
       expect(updatedState[0].byline).to.equal('Ben Bergman');
     });
   });
+});
 
+describe('Search functionality', () => {
   it('renders the Search Bar', () => {
     const wrapper = shallow(<SearchBar />);
     expect(wrapper.find('.search-bar')).to.have.length(1);
   });
 
-  it('should have an onSubmit handler', () => {
+  it('includes an onSubmit handler', () => {
     const props = {
       handleSubmit: () => {}
     };
@@ -56,7 +58,7 @@ describe('<App />', () => {
     expect(wrapper.find('form').props().onSubmit).to.be.a('function');
   });
 
-  it('should call handleSubmit on form submission', () => {
+  it('calls handleSubmit on form submit event', () => {
     const props = {
       handleSubmit: sinon.spy()
     };
@@ -65,7 +67,7 @@ describe('<App />', () => {
     expect(props.handleSubmit.calledOnce).to.equal(true);
   });
 
-  it('should throw error if input is blank', () => {
+  it('throws error if input is blank', () => {
     const wrapper = mount(<App />);
     const eventStub = {
       preventDefault: () => {},
@@ -77,7 +79,7 @@ describe('<App />', () => {
     });
   });
 
-  it('should update state if search input is not blank', () => {
+  it('updates state if search input is not blank', () => {
     const wrapper = mount(<App />);
     const eventStub = {
       preventDefault: () => {},
@@ -85,7 +87,17 @@ describe('<App />', () => {
     }
 
     return wrapper.node.handleSubmit(eventStub).then(keywords => {
-      expect(wrapper.state('keywords')).to.equal('richard branson');
+      const updatedState = wrapper.state();
+      expect(updatedState.keywords).to.equal('richard branson');
+      expect(updatedState.articles).to.have.length(10);
+    });
+  });
+
+  it('updates state after entering input through DOM', () => {
+    const wrapper = mount(<App />);
+    wrapper.find('form').simulate('submit', { target: [{value: 'star trek'}]});
+    return wrapper.node.componentDidMount().then(() => {
+      expect(wrapper.state('keywords')).to.equal('star trek');
       expect(wrapper.state('articles')).to.have.length(10);
     });
   });
