@@ -113,3 +113,15 @@ describe('Search functionality', () => {
     });
   });
 });
+
+describe('Render components', () => {
+  it('renders a thumbnail for every article', () => {});
+
+  it('renders a relative time for every article', () => {});
+
+  it('renders a title for every article', () => {});
+
+  it('renders a byline for every article', () => {});
+
+  it('renders audio tags', () => {});
+});
