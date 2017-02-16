@@ -31,11 +31,15 @@ describe('<App />', () => {
     expect(wrapper.state('articles')).to.have.length(0);
   });
 
-  it('fetches articles by query', () => {
+  it('fetches articles by query and updates state', () => {
     const wrapper = mount(<App />);
     const query = 'virgin galactic';
     return wrapper.node.getArticlesByQuery(query).then(data => {
-      expect(data).to.have.length(10);
+      const updatedState = wrapper.state('articles');
+      expect(updatedState).to.have.length(10);
+      expect(updatedState[0].title)
+        .to.equal('How aerospace is making a comeback in Southern California');
+      expect(updatedState[0].byline).to.equal('Ben Bergman');
     });
   });
 
