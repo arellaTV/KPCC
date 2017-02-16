@@ -30,11 +30,19 @@ class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const keywords = event.target[0].value;
-    if (keywords) {
-      this.setState({ keywords });
-      this.getArticlesByQuery(keywords);
-    }
-    return keywords;
+    return new Promise((resolve, reject) => {
+      if (keywords) {
+        const articles = this.getArticlesByQuery(keywords);
+        this.setState({ keywords });
+        resolve(articles);
+      } else {
+        reject('Input not found!')
+      }
+    });
+    // const keywords = event.target[0].value;
+    // if (keywords) {
+    // }
+    // return keywords;
   }
 
   render() {

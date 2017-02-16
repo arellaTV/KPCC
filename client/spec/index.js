@@ -65,14 +65,28 @@ describe('<App />', () => {
     expect(props.handleSubmit.calledOnce).to.equal(true);
   });
 
-  it('should not update state if search input is blank', () => {
+  it('should throw error if input is blank', () => {
     const wrapper = mount(<App />);
     const eventStub = {
       preventDefault: () => {},
       target: [{ value: '' }]
     }
-    expect(wrapper.node.handleSubmit(eventStub)).to.equal('');
-    expect(wrapper.state('keywords')).to.equal('virgin galactic');
-    expect(wrapper.state('articles')).to.have.length(0);
+
+    return wrapper.node.handleSubmit(eventStub).catch(error => {
+      expect(error).to.equal('Input not found!');
+    });
+  });
+
+  it('should update state if search input is not blank', () => {
+    const wrapper = mount(<App />);
+    const eventStub = {
+      preventDefault: () => {},
+      target: [{ value: 'richard branson' }]
+    }
+
+    return wrapper.node.handleSubmit(eventStub).then(keywords => {
+      expect(wrapper.state('keywords')).to.equal('richard branson');
+      expect(wrapper.state('articles')).to.have.length(10);
+    });
   });
 });
