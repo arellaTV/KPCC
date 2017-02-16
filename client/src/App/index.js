@@ -22,6 +22,7 @@ class App extends React.Component {
     return fetch(`http://www.scpr.org/api/v3/articles?query=${query}`)
       .then(response => response.json())
       .then(body => {
+        this.setState({ articles: [] });
         this.setState({ articles: body.articles });
         return body.articles;
       });
@@ -49,7 +50,7 @@ class App extends React.Component {
         </div>
         <SearchBar handleSubmit={this.handleSubmit} />
         <div className='container'>
-          <h4>Search results for <u>{this.state.keywords}</u></h4>
+          <h4>{this.state.articles.length} search results for <u>{this.state.keywords}</u></h4>
           {this.state.articles.map((article, index) => {
             return (
               <ArticleEntry
