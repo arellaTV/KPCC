@@ -1,7 +1,7 @@
 # KPCC
 > A web application that allows a user to search for KPCC articles.
 
-![Imgur](http://i.imgur.com/by5RQAf.gifv)
+![Imgur](http://i.imgur.com/by5RQAf.gif)
 
 ## Table of Contents
 1. [Getting Started](#getting-started)
@@ -54,7 +54,7 @@ $ npm test
 -- Uses breakpoint at 600px
 -- Primarily uses box-model and floats
 
-![Imgur](http://i.imgur.com/iPRIS2l.gifv)
+![Imgur](http://i.imgur.com/iPRIS2l.gif)
 
 ## Notes
 - No third party CSS libraries such as Bootstrap or Materialize is used
