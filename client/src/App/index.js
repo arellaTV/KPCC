@@ -19,10 +19,11 @@ class App extends React.Component {
 
   getArticlesByQuery(keywords) {
     const query = keywords.split(' ').join('+');
-    fetch(`http://www.scpr.org/api/v3/articles?query=${query}`)
+    return fetch(`http://www.scpr.org/api/v3/articles?query=${query}`)
       .then(response => response.json())
       .then(body => {
-        this.setState({ articles: body.articles })
+        this.setState({ articles: body.articles });
+        return body.articles;
       });
   }
 

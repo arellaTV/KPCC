@@ -31,6 +31,14 @@ describe('<App />', () => {
     expect(wrapper.state('articles')).to.have.length(0);
   });
 
+  it('fetches articles by query', () => {
+    const wrapper = mount(<App />);
+    const query = 'virgin galactic';
+    return wrapper.node.getArticlesByQuery(query).then(data => {
+      expect(data).to.have.length(10);
+    });
+  });
+
   it('renders the Search Bar', () => {
     const wrapper = shallow(<SearchBar />);
     expect(wrapper.find('.search-bar')).to.have.length(1);
